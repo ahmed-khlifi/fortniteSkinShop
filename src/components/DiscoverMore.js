@@ -17,7 +17,6 @@ class DiscoverMore extends React.Component {
     componentDidMount(){
         const getItems = async () => {
             const data = await getDocs(collection(db, 'items'))
-            console.log(data.docs[0].data());
             let items = data.docs.map(e => {return e.data()})
             
             this.setState({

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom'
-
+import Loader from './Loader';
 
 function Shop() {
 
@@ -10,18 +10,24 @@ function Shop() {
     // state
     const [items, setItems] = useState([])
     const [isLoading, setIsLoading] = useState(true)
+    const [error, setError] = useState(false)
     // fetch data from api
     const fetchItems = async () => {
-        const data = await fetch('https://fortnite-api.theapinetwork.com/upcoming/get');
-        const items = await data.json();
-        setItems(items.data)
+        try {
+            const data = await fetch('https://fortnite-api.theapinetwork.com/upcoming/get');
+            const items = await data.json();
+            setItems(items.data)
+        } catch (error) {
+            setError(true)
+        }
         setIsLoading(false)
     }
 
     return (    
         <div className="shop-container">
             <p className="shop-title">All products</p>
-            { isLoading && <h3>  Loading...</h3>}
+            { isLoading && <Loader />}
+            { error && <h3>  we cannot get the items, try later..</h3>}
             <div id="Shop">
            {
                items.map(item => (

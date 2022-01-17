@@ -20,7 +20,6 @@ function Item({match}) {
           const item = await data.json();
           setItem(item.data.item)
           
-          console.log(item.data.item.ratings.numberVotes)
     }
     //rating function
    /*  const StarRating = async () => c = await [...Array(item.ratings.avgStars)].map((star , i) => {

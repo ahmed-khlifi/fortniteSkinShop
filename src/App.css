@@ -167,8 +167,8 @@ nav ul {
 
 /* shop and cards */
 #Shop {
-  margin: 0;
-  padding: 60px;
+  margin: 0 auto;
+  width: 90%;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));;
   column-gap: 20px;
@@ -271,6 +271,37 @@ footer{
       -webkit-transform: rotate(359deg);
   }
 }
+/* ==-- loader .. */
+.big-circle {
+  margin: 0 auto;
+  width: 8rem;
+  height: 8rem;
+  border: 5px solid #ffff;
+  border-radius: 50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  border-color: #fff transparent #fff #fff;
+  animation: bigcircle 1.2s linear infinite;
+}
+.small-circle {
+  position:relative;
+  width: 5rem;
+  height: 5rem;
+  border: 5px solid #ffff;
+  border-radius: 50%;
+  border-color: #fff #fff transparent #fff;
+}
+
+@keyframes bigcircle {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
 /* Responsive */
 
@@ -292,12 +323,27 @@ footer{
   .featured h1{
     text-align: center;
   }
+  .item-details-card{
+    width: 90%;
+  }
 } 
 /* SMALL */
 @media only screen and (max-width: 622px) {
-  .featured h1{
+  .featured h1, .shop-title{
     text-align: center;
     font-size: 72px;
+  }
+  .item-details-card{
+    flex-direction: column;
+    width: 80%;
+  }
+  .item-details-card img{
+    width: 100%;
+    object-fit: cover;
+  }
+  .shop-item-description{
+    width: 90%;
+    margin: 0 auto;
   }
 } 
 /* X-SMALL */
@@ -316,7 +362,7 @@ footer{
     margin-bottom: 5px;
     width: 100%;
   }
-  .featured h1{
+  .featured h1, .shop-title{
     text-align: center;
     font-size: 42px;
   }

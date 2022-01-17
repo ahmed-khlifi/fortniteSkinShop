@@ -170,7 +170,7 @@ nav ul {
   margin: 0;
   padding: 60px;
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));;
   column-gap: 20px;
   row-gap:20px;
 }
@@ -203,7 +203,7 @@ nav ul {
 }
 #shopItem img{
 transition: all 0.5s ease;
-height: 15vw;
+height: 200px;
 transform: translateY(40px);
 border: 2px #01E6FF solid;
 border-radius:100%;
@@ -271,3 +271,63 @@ footer{
       -webkit-transform: rotate(359deg);
   }
 }
+
+/* Responsive */
+
+
+/* MIDIUM */
+@media only screen and (max-width: 992px) {
+  .header >div{
+    width: 80%;
+  }
+  .shape2{
+    bottom: 0;
+    width: 200px;
+  }
+  .featured{
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+  }
+  .featured h1{
+    text-align: center;
+  }
+} 
+/* SMALL */
+@media only screen and (max-width: 622px) {
+  .featured h1{
+    text-align: center;
+    font-size: 72px;
+  }
+} 
+/* X-SMALL */
+@media only screen and (max-width: 622px) {
+  .header, .header div {
+    width: 90%;
+  }
+  .shape1{
+    display: none;
+  }
+  .dashed-circle{
+    width: 290px;
+    height: 290px;
+  }
+  .featured{
+    margin-bottom: 5px;
+    width: 100%;
+  }
+  .featured h1{
+    text-align: center;
+    font-size: 42px;
+  }
+  .featured-card{
+    flex-direction: column;
+    width: 80%;
+    height: 100%;
+  }
+  .featured-card img{
+    width: 100%;
+    border-radius: 8px 8px 0 0px;
+  }
+
+} 
